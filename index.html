@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Il Filo Invisibile della Natura</title>
+<style>
+:root{--bg:#f6f5ee;--card:#fff;--ink:#1d2b22;--mut:#546258;--g:#1f5233;--gl:#dcebd9;--o:#c9733f;--ol:#f6e3d3;--b:#47708c;--bl:#dbe7ef;--y:#e6b73c;--yl:#faf0cc;--r:#b8503f;--rl:#f5dcd6;--p:#7a3f6b;--line:#d8d8cc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14201a;--card:#1d2b23;--ink:#eaf0e6;--mut:#a5b4a8;--g:#8fd0a0;--gl:#25402f;--ol:#4a3425;--bl:#243846;--yl:#473c1a;--rl:#4a2a25;--line:#33443a;--o:#e39362;--b:#8fb8d4;--r:#e57f6c;--p:#c98bb9}}
+html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--g);overflow-x:auto;white-space:nowrap;padding:8px}
+nav a{color:#fff;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:14px;display:inline-block}
+nav a:hover{background:rgba(255,255,255,.2)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--g);z-index:10}
+header{text-align:center;padding:48px 20px 36px;background:linear-gradient(var(--gl),var(--bg))}
+h1{font-size:clamp(30px,6vw,48px);margin:0 0 8px;color:var(--g)}
+header p{color:var(--mut);margin:0 auto;max-width:560px}
+.ico{font-size:40px;letter-spacing:10px}
+main{max-width:860px;margin:auto;padding:0 16px 60px}
+section{margin-top:40px}
+h2{color:var(--g);font-size:28px;border-bottom:3px solid var(--g);padding-bottom:6px}
+h3{color:var(--g);margin:20px 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.grid .card{margin:0}
+.tag{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 9px;border-radius:10px;background:var(--gl);color:var(--g)}
+.key{background:var(--yl);border-left:6px solid var(--y);border-radius:10px;padding:12px 16px;margin:14px 0}
+.key b:first-child{display:block;margin-bottom:2px}
+table{border-collapse:collapse;width:100%;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;font-size:15px}
+th{background:var(--gl);color:var(--g)}
+.wrap{overflow-x:auto}
+.pyr{display:flex;flex-direction:column;align-items:center;gap:4px;margin:16px 0}
+.pyr div{padding:10px 14px;border-radius:8px;color:#1d2b22;text-align:center;font-size:15px}
+.l4{width:45%;background:#e8a091}.l3{width:62%;background:#f0b98b}.l2{width:80%;background:#dfd58a}.l1{width:100%;background:#a9d3a0}
+.dec{width:100%;background:#d7b5cd}
+@media(max-width:560px){.l4{width:70%}.l3{width:80%}.l2{width:90%}}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs>div{border-radius:12px;padding:12px 14px}
+.arm{background:var(--ol)}.dif{background:var(--gl)}
+ul{padding-left:20px}li{margin:4px 0}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding:8px 8px 8px 46px;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:8px 0}
+.steps li::before{content:counter(s);position:absolute;left:10px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--g);color:var(--bg);text-align:center;font-weight:700;line-height:26px}
+.casc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.casc .card{text-align:center}
+.c1{background:var(--gl)}.c2{background:var(--bg);border-style:dashed}.c3{background:var(--rl)}
+button{font:inherit;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px}
+.opt:hover{border-color:var(--g)}
+.opt.ok{background:var(--gl);border-color:var(--g)}
+.opt.no{background:var(--rl);border-color:var(--r)}
+.btn{background:var(--g);color:var(--bg);border:0;border-radius:20px;padding:10px 20px;margin-top:8px}
+.fb{margin-top:8px;font-size:15px;color:var(--mut)}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:700;color:var(--g)}
+svg{max-width:100%;height:auto}
+.fcw{max-width:520px;margin:auto}
+.fc{perspective:1000px;height:230px;cursor:pointer;margin:12px 0}
+.fcin{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.fc.flip .fcin{transform:rotateY(180deg)}
+.fcf{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:2px solid var(--g);overflow:auto;font-size:18px}
+.fcq{background:var(--gl);color:var(--ink);font-size:22px;font-weight:700}
+.fca{background:var(--yl);color:var(--ink);transform:rotateY(180deg)}
+.fcbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;color:var(--mut)}
+footer{text-align:center;color:var(--mut);padding:30px 16px;font-size:14px}
+</style>
+</head>
+<body>
+<nav>
+<a href="#ecologia">Ecologia</a><a href="#scatole">Habitat · Ecosistema · Bioma</a><a href="#reti">Reti trofiche</a><a href="#predaprede">Preda-predatore</a><a href="#cascata">Cascata trofica</a><a href="#direttive">Direttive UE</a><a href="#ripasso">Ripasso</a><a href="#flash">Flashcard</a><a href="#quiz">Quiz</a>
+</nav>
+<header>
+<div class="ico">🌿☀️🐾💧</div>
+<h1>Il Filo Invisibile della Natura</h1>
+<p>Manuale digitale per apprendisti ecologi. Leggi, ripassa le parole chiave e metti alla prova quello che hai imparato con il quiz finale.</p>
+</header>
+<main>
+
+<section id="ecologia">
+<h2>1. Che cos’è l’ecologia?</h2>
+<p>L’<b>ecologia</b> è la branca della biologia che studia le <b>relazioni</b> tra gli organismi viventi e tra questi e l’ambiente fisico in cui vivono: clima, acqua, suolo, luce e nutrienti. Non guarda il singolo individuo, ma <b>popolazioni, comunità, flussi di energia e cicli delle sostanze</b> (come quelli dell’acqua e del carbonio). Il suo obiettivo è capire come gli ecosistemi funzionano, si mantengono in equilibrio e reagiscono ai cambiamenti.</p>
+<div class="grid">
+<div class="card"><span class="tag">Ecologia pura</span><p>Studia le <b>leggi generali</b> delle relazioni tra organismi e ambiente e gli equilibri naturali.</p></div>
+<div class="card"><span class="tag" style="background:var(--yl);color:var(--ink)">Ecologia applicata</span><p>Usa la scienza per <b>agire</b>: agricoltura, pesca, gestione forestale, parchi naturali, lotta all’inquinamento e conservazione.</p></div>
+</div>
+
+<h3>L’ecologo: il detective della natura</h3>
+<p>È uno scienziato che raccoglie dati sul terreno e in laboratorio per descrivere lo stato di un ambiente, individuarne i problemi e proporre soluzioni di gestione o tutela. Lavora per enti pubblici, parchi, università, aziende ambientali e organizzazioni di ricerca.</p>
+<ul>
+<li>Monitora biodiversità, popolazioni animali e vegetali, qualità di acqua, aria e suolo.</li>
+<li>Studia l’effetto di inquinamento, deforestazione, specie invasive, cambiamenti climatici e attività umane.</li>
+<li>Valuta l’impatto ambientale di progetti come strade, impianti o nuove coltivazioni.</li>
+<li>Suggerisce misure di conservazione, ripristino degli habitat e uso sostenibile delle risorse.</li>
+</ul>
+<div class="wrap"><table>
+<tr><th>Campo</th><th>Domanda ecologica</th><th>Esempio di studio</th></tr>
+<tr><td>🐝 Impollinazione</td><td>Come cambia la riproduzione delle piante se calano gli insetti impollinatori?</td><td>Si contano api, farfalle e altri insetti nei campi per capire se il calo delle api riduce la produzione di frutti e semi.</td></tr>
+<tr><td>💧 Inquinamento</td><td>Un fiume è danneggiato dagli scarichi urbani?</td><td>Si misurano ossigeno disciolto, nutrienti e presenza di organismi indicatori.</td></tr>
+<tr><td>🐾 Conservazione</td><td>Quanto spazio serve a una specie per sopravvivere?</td><td>Si tracciano con radiocollari lupi e orsi per individuare i corridoi ecologici da proteggere.</td></tr>
+<tr><td>🌡️ Clima</td><td>Le specie si stanno spostando verso zone più adatte?</td><td>Si confronta la distribuzione attuale di piante e animali con dati storici: si spostano verso quote più fresche?</td></tr>
+<tr><td>🌲 Gestione forestale</td><td>Un taglio può essere sostenibile?</td><td>Si valutano rigenerazione delle piante, fauna presente e mantenimento dell’ecosistema.</td></tr>
+</table></div>
+<div class="key"><b>💡 Perché è importante</b>L’ecologia permette di prevedere le conseguenze delle attività umane e di gestire le risorse senza compromettere gli equilibri che sostengono la vita.</div>
+</section>
+
+<section id="scatole">
+<h2>2. Le scatole cinesi della natura</h2>
+<p>La natura funziona come una serie di scatole cinesi: ogni livello contiene quello più piccolo.</p>
+<div class="pyr" aria-label="Bioma contiene ecosistemi che contengono habitat">
+<div style="width:100%;background:var(--ol);border:2px solid var(--o)"><b>BIOMA</b> – raggruppa infiniti ecosistemi simili
+<div style="background:var(--bl);border:2px solid var(--b);margin:8px auto;width:90%"><b>ECOSISTEMA</b> – contiene molti habitat
+<div style="background:var(--gl);border:2px solid var(--g);margin:8px auto;width:80%"><b>HABITAT</b> – il luogo esatto adatto a una specie 🐸</div></div></div>
+</div>
+
+<h3>🏠 Habitat: l’indirizzo (dove vive)</h3>
+<p>È il luogo o tipo di ambiente in cui un organismo, una popolazione o una comunità <b>vive e si riproduce</b>, con le condizioni adatte alla specie. Comprende:</p>
+<ul>
+<li><b>condizioni abiotiche</b>: clima, suolo, acqua, luce;</li>
+<li><b>condizioni biotiche</b>: altri organismi, risorse alimentari, relazioni ecologiche.</li>
+</ul>
+<p>Esempi: una torbiera per alcune piante palustri, una parete rocciosa per uccelli nidificanti, un fondale marino per una specie bentonica, una zona specifica del lago adatta al luccio. Può essere naturale o seminaturale (boschi, pascoli, ambienti agricoli tradizionali).</p>
+
+<h3>🏘️ Ecosistema: il quartiere (come funziona)</h3>
+<p>Complesso dinamico di piante, animali, microorganismi e ambiente non vivente che <b>interagiscono</b> formando un’unità funzionale. Include:</p>
+<ul>
+<li><b>componenti biotiche</b>: produttori, consumatori e decompositori;</li>
+<li><b>componenti abiotiche</b>: acqua, aria, suolo, temperatura, nutrienti;</li>
+<li><b>processi e interazioni</b>: fotosintesi, catene alimentari, cicli di materia, flussi di energia.</li>
+</ul>
+<p>Esempio: un <b>lago</b> è un ecosistema (acqua, sedimenti, alghe, pesci, insetti, batteri e tutti i processi che li collegano). L’habitat del luccio è solo la parte di lago adatta alla sua vita.</p>
+
+<h3>🌍 Bioma: la scala continentale</h3>
+<p>È la grande unità ambientale della Terra: una vasta area con <b>clima relativamente omogeneo</b> e una comunità stabile di organismi adattati. È un insieme di ecosistemi simili su scala regionale o continentale.</p>
+<ul>
+<li>Dipende da <b>clima, suolo, latitudine e altitudine</b>.</li>
+<li>È identificato soprattutto dalla <b>vegetazione dominante</b>.</li>
+<li>Comprende le interazioni tra piante, animali, funghi, batteri e ambiente fisico.</li>
+<li>Può essere <b>terrestre</b> (tundra, taiga, deserto, savana, foresta tropicale) o <b>acquatico</b> (oceani, mari, laghi, stagni).</li>
+</ul>
+<p><b>Esempio – il deserto:</b> clima arido, scarsa piovosità, vegetazione adattata alla siccità e animali capaci di sopravvivere con pochissima acqua. Anche dentro un bioma esistono ambienti più piccoli e particolari, come le oasi.</p>
+
+<div class="wrap"><table>
+<tr><th>Concetto</th><th>Domanda</th><th>Estensione</th></tr>
+<tr><td>Habitat</td><td>Dove vive una specie?</td><td>Ambiente con condizioni adatte a una specie o comunità</td></tr>
+<tr><td>Ecosistema</td><td>Come funzionano insieme viventi e ambiente?</td><td>Sistema completo di componenti biotiche, abiotiche e interazioni</td></tr>
+<tr><td>Bioma</td><td>Quale grande ambiente della Terra è?</td><td>Insieme di ecosistemi simili su scala regionale o continentale</td></tr>
+</table></div>
+</section>
+
+<section id="reti">
+<h2>3. Le reti trofiche: il flusso dell’energia</h2>
+<p>Le reti trofiche (o reti alimentari) descrivono <b>“chi mangia chi”</b> in ogni ecosistema: sono l’insieme delle catene alimentari collegate tra loro, attraverso cui <b>materia ed energia</b> passano dagli organismi che producono cibo a quelli che lo consumano.</p>
+<p>Il motore è il <b>Sole ☀️</b>. In tutto il mondo, dal fondale oceanico alla savana, lo schema è lo stesso:</p>
+<div class="key" style="text-align:center;font-weight:700">Sole → produttori → consumatori → decompositori</div>
+
+<h3>I livelli trofici</h3>
+<div class="pyr">
+<div class="l4"><b>Consumatori terziari / apici</b> – grandi predatori (aquile, squali, leoni) 🦅🦁</div>
+<div class="l3"><b>Consumatori secondari</b> – predatori di erbivori (volpi, rane, piccoli pesci) 🦊🐸</div>
+<div class="l2"><b>Consumatori primari</b> – erbivori (conigli, insetti, zooplancton) 🐇🦗</div>
+<div class="l1"><b>Produttori</b> – trasformano l’energia solare in materia con la <b>fotosintesi</b> (piante, alghe, fitoplancton) 🌱</div>
+<div class="dec"><b>Decompositori e detritivori</b> (funghi, batteri, lombrichi) 🍄 – chiudono il ciclo trasformando i resti in sostanze inorganiche riutilizzabili dalle piante</div>
+</div>
+<p>Nelle reti terrestri i produttori sono soprattutto piante; negli oceani sono principalmente <b>microalghe e fitoplancton</b>, da cui dipendono zooplancton, pesci e grandi animali come le balene filtratrici.</p>
+
+<h3>Perché “rete” e non “catena”?</h3>
+<p>Un organismo appartiene a <b>più percorsi contemporaneamente</b>. Una volpe mangia frutti, roditori e uccelli, collegando circuiti energetici diversi. Per questo gli ecologi parlano di rete.</p>
+
+<div class="key"><b>⚡ L’energia si disperde</b>A ogni passaggio tra livelli trofici gran parte dell’energia si perde, soprattutto come <b>calore</b>. Per questo i predatori apici sono normalmente <b>meno numerosi</b> di erbivori e produttori.</div>
+<p>Le reti trofiche mantengono l’equilibrio degli ecosistemi: regolano le popolazioni, riciclano i nutrienti e trasferiscono l’energia necessaria alla vita.</p>
+</section>
+
+<section id="predaprede">
+<h2>4. Il rapporto preda-predatore (+ / −)</h2>
+<p>È un’interazione in cui un organismo, il <b>predatore</b>, caccia e consuma un altro, la <b>preda</b>, per ottenere energia. Non è solo “chi mangia chi”: è il meccanismo biologico fondamentale per <b>trasferire energia e nutrienti</b> nella rete alimentare.</p>
+<div class="grid">
+<div class="card"><span class="tag">Predatore (+)</span><p>Ottiene energia vitale. Es. lupo, aquila, rana.</p></div>
+<div class="card"><span class="tag" style="background:var(--rl);color:var(--r)">Preda (−)</span><p>Subisce un danno, spesso letale. Es. cervo, topo, insetto.</p></div>
+</div>
+<p><b>Effetto sul sistema:</b> regola le popolazioni e impedisce agli erbivori di distruggere la vegetazione. Influisce su reti alimentari, biodiversità ed equilibrio degli ecosistemi.</p>
+
+<h3>⚔️ La corsa agli armamenti evolutiva</h3>
+<p>La relazione preda-predatore è un motore di <b>selezione naturale</b>: i predatori evolvono strategie di caccia, le prede difese sempre più efficaci.</p>
+<div class="vs">
+<div class="arm"><b>Predatori – le armi</b><ul><li>Velocità, forza, artigli e denti</li><li>Caccia di gruppo (strategia coordinata)</li><li>Sensi iper-sviluppati e imboscate</li><li>Mimicria aggressiva (ingannare la preda)</li></ul></div>
+<div class="dif"><b>Prede – le difese</b><ul><li>Camuffamento e fuga veloce</li><li>Vita in branco e allerta collettiva</li><li>Spine, tossine e colori di avvertimento</li><li>Mimicria difensiva (imitare specie pericolose o sgradevoli)</li></ul></div>
+</div>
+
+<h3>🌀 La danza delle popolazioni (lepri e linci)</h3>
+<svg viewBox="0 0 600 220" role="img" aria-label="Grafico: le popolazioni di lepri e linci oscillano con un ritardo">
+<rect x="0" y="0" width="600" height="220" fill="none"/>
+<path d="M10 150 C80 150 100 30 170 30 S250 190 320 190 S400 40 470 40 S560 190 590 190" fill="none" stroke="#47708c" stroke-width="4"/>
+<path d="M10 110 C60 150 90 180 130 170 S210 40 280 40 S350 190 420 190 S500 60 570 60" fill="none" stroke="#c9733f" stroke-width="4"/>
+<text x="20" y="20" fill="#47708c" font-size="15" font-weight="700">● Lepri (prede)</text>
+<text x="20" y="40" fill="#c9733f" font-size="15" font-weight="700">● Linci (predatori)</text>
+<text x="300" y="213" text-anchor="middle" fill="currentColor" font-size="13">tempo →</text>
+</svg>
+<ol class="steps">
+<li>Le lepri aumentano → più cibo per le linci.</li>
+<li>Dopo un leggero ritardo anche le linci si moltiplicano.</li>
+<li>Troppe linci cacciano troppe lepri → le lepri crollano.</li>
+<li>Senza cibo, le linci diminuiscono.</li>
+<li>Con meno predatori, le lepri ricominciano a crescere.</li>
+</ol>
+<div class="key"><b>⚖️ Equilibrio dinamico</b>Le popolazioni non sono fisse: oscillano in un ciclo continuo guidato dalle risorse. I valori attorno a cui oscillano dipendono da risorse, habitat, malattie, clima e presenza di altri predatori.</div>
+</section>
+
+<section id="cascata">
+<h2>5. Il punto di rottura: la cascata trofica</h2>
+<div class="casc">
+<div class="card c1"><b>1. Sistema in equilibrio</b><p>🐺 🦌 🌳<br>Lupi, cervi e alberi sono collegati e si regolano a vicenda.</p></div>
+<div class="card c2"><b>2. Scompare il predatore apice</b><p>❌🐺 🦌 🌳<br>Il controllo sugli erbivori viene a mancare.</p></div>
+<div class="card c3"><b>3. Effetto cascata</b><p>🦌🦌🦌🦌🦌 → 🌳💥<br>Gli erbivori aumentano senza controllo.</p></div>
+</div>
+<p>Se una specie scompare o diminuisce troppo, l’effetto si propaga a tutta la rete: è la <b>cascata trofica</b>. Se il predatore apice scompare, il sistema collassa: gli erbivori si moltiplicano, <b>divorano tutta la vegetazione</b> e distruggono l’habitat di innumerevoli altre specie.</p>
+<div class="key"><b>🛡️ Conclusione</b>Proteggere la rete intera – produttori, prede, predatori e decompositori – è essenziale per la salute degli ecosistemi di tutto il pianeta.</div>
+</section>
+
+<section id="direttive">
+<h2>6. Lo scudo della natura: le Direttive europee</h2>
+<div class="grid">
+<div class="card"><span class="tag">Direttiva Habitat 92/43/CEE</span><p>Del 21 maggio 1992. Protegge la biodiversità europea tutelando <b>flora, fauna selvatiche e i loro ambienti</b>, naturali e seminaturali. Protegge i tipi di habitat rari o minacciati e le specie di interesse comunitario (<b>esclusi gli uccelli</b>, tutelati dall’altra direttiva).</p><p><b>I numeri:</b> 233 tipi di habitat e 1.389 specie.</p><p>Obiettivo: mantenere o ripristinare habitat e specie in uno <b>stato di conservazione soddisfacente</b>.</p></div>
+<div class="card"><span class="tag" style="background:var(--bl);color:var(--b)">Direttiva Uccelli 2009/147/CE</span><p>Ha sostituito la precedente Direttiva 79/409/CEE. Tutela <b>tutte le specie di uccelli</b> viventi allo stato selvatico nel territorio europeo dell’Unione.</p><p><b>La regola:</b> non protegge solo l’animale, ma anche <b>uova, nidi e l’intero habitat</b> necessario. Gli Stati membri devono preservare, mantenere o ripristinare habitat sufficienti per superficie e varietà, anche con zone di protezione.</p></div>
+</div>
+<h3>🌐 Rete Natura 2000</h3>
+<p>Le due direttive sono il nucleo di <b>Natura 2000</b>: la loro unione ha creato il <b>più grande network di protezione al mondo</b>.</p>
+<div class="key"><b>🔄 Il cambio di prospettiva</b>L’ecologia moderna non cerca più di salvare solo il singolo animale, ma difende la <b>funzionalità ecologica</b> dell’intero sistema. Se salvi l’habitat, salvi l’intera rete.</div>
+<p style="text-align:center;font-size:20px"><b>Fai parte della rete.</b> 🌳 Ogni ambiente naturale è tenuto insieme da un filo invisibile: dalla fotosintesi ai grandi predatori, nulla esiste in isolamento. Proteggerlo è la nostra missione.</p>
+</section>
+
+<section id="ripasso">
+<h2>7. Ripasso veloce</h2>
+<details open><summary>Parole chiave</summary>
+<ul>
+<li><b>Ecologia</b>: studio delle relazioni tra viventi e ambiente.</li>
+<li><b>Ecosistema</b>: viventi + ambiente non vivente + interazioni.</li>
+<li><b>Habitat</b>: dove vive una specie.</li>
+<li><b>Bioma</b>: grande unità ambientale con clima e vegetazione simili.</li>
+<li><b>Produttori</b>: fanno fotosintesi (piante, alghe, fitoplancton).</li>
+<li><b>Consumatori</b>: primari (erbivori), secondari (predatori di erbivori), terziari/apici (grandi predatori).</li>
+<li><b>Decompositori</b>: funghi, batteri, lombrichi; riciclano la materia.</li>
+<li><b>Rete trofica</b>: catene alimentari collegate tra loro.</li>
+<li><b>Predazione (+/−)</b>: il predatore guadagna, la preda subisce danno.</li>
+<li><b>Mimicria</b>: imitazione (aggressiva nei predatori, difensiva nelle prede).</li>
+<li><b>Equilibrio dinamico</b>: le popolazioni oscillano in cicli.</li>
+<li><b>Cascata trofica</b>: la scomparsa di una specie si propaga a tutta la rete.</li>
+<li><b>Natura 2000</b>: rete europea di aree protette nata dalle due direttive.</li>
+</ul></details>
+<details><summary>Da ricordare in 6 punti</summary>
+<ol>
+<li>L’ecologia studia relazioni e flussi di energia, non solo singoli animali.</li>
+<li>Habitat ⊂ ecosistema ⊂ bioma.</li>
+<li>Tutto parte dal Sole e dai produttori.</li>
+<li>L’energia si disperde come calore a ogni livello: i predatori apici sono pochi.</li>
+<li>Prede e predatori si regolano a vicenda in un equilibrio dinamico.</li>
+<li>Senza predatori apice può partire una cascata trofica: per questo si protegge l’habitat e tutta la rete.</li>
+</ol></details>
+</section>
+
+<section id="flash">
+<h2>8. Flashcard</h2>
+<p>Tocca la carta per girarla: prima prova a rispondere a mente, poi controlla.</p>
+<div class="fcw"><div class="fc" id="fc" tabindex="0" role="button" aria-label="Gira la carta"><div class="fcin"><div class="fcf fcq" id="fcq"></div><div class="fcf fca" id="fca"></div></div></div>
+<div class="fcbar"><button class="btn" id="fcp">← Indietro</button><span id="fcn"></span><button class="btn" id="fcx">Avanti →</button></div>
+<div style="text-align:center"><button class="btn" id="fcs" style="background:var(--o)">🔀 Mescola</button></div></div>
+</section>
+
+<section id="quiz">
+<h2>9. Metti alla prova ciò che hai imparato</h2>
+<div class="card" id="quizbox"></div>
+</section>
+</main>
+<footer>🌍 Il Filo Invisibile della Natura – materiale di studio per apprendisti ecologi</footer>
+<script>
+var Q=[
+["Che cosa studia l’ecologia?",["Solo la forma degli animali","Le relazioni tra viventi e ambiente","Solo le piante dei giardini"],1,"È la branca della biologia che studia le relazioni e i flussi di energia."],
+["Qual è la differenza tra ecologia pura e applicata?",["La pura studia le leggi generali, l’applicata le usa per agire","La pura riguarda gli animali, l’applicata le piante","Non c’è differenza"],0,"L’ecologia applicata si usa per agricoltura, parchi, inquinamento e conservazione."],
+["Un lago intero è…",["un habitat","un ecosistema","un bioma"],1,"L’intero lago con i suoi processi è un ecosistema; il luccio vive in un suo habitat."],
+["Il deserto è un esempio di…",["bioma","produttore","direttiva"],0,"Clima arido e vegetazione adattata: è un bioma."],
+["Qual è la fonte primaria di energia delle reti trofiche?",["Il suolo","L’acqua","Il Sole"],2,"Sole → produttori → consumatori → decompositori."],
+["Chi sono i consumatori primari?",["Gli erbivori","I grandi predatori","I funghi"],0,"Mangiano i produttori: conigli, insetti, zooplancton."],
+["Perché si parla di rete e non di catena?",["Perché ci sono solo piante","Perché un organismo fa parte di più percorsi alimentari","Perché le catene sono vietate"],1,"La volpe mangia frutti, roditori e uccelli."],
+["Perché i predatori apici sono meno numerosi?",["Perché a ogni livello l’energia si disperde come calore","Perché dormono molto","Perché vivono in alto"],0,"Resta poca energia ai livelli più alti."],
+["Nel rapporto preda-predatore (+/−) il segno − è…",["del predatore","della preda","dei decompositori"],1,"La preda subisce un danno, spesso letale."],
+["Nel ciclo lepri-linci, cosa succede dopo il calo delle lepri?",["Le linci aumentano","Le linci diminuiscono","Nulla"],1,"Senza cibo le linci diminuiscono, poi le lepri ricrescono."],
+["Che cos’è la cascata trofica?",["Un tipo di fiume","L’effetto a catena della scomparsa di una specie","Una direttiva europea"],1,"Senza predatori apice gli erbivori divorano la vegetazione."],
+["Cosa protegge la Direttiva Uccelli?",["Solo gli adulti","Uccelli, uova, nidi e habitat","Solo i rapaci"],1,"Protegge anche l’habitat necessario alla sopravvivenza."],
+["Che cos’è Rete Natura 2000?",["Il più grande network di protezione al mondo, nato dalle due direttive","Un parco in Italia","Un libro di ecologia"],0,"Unisce Direttiva Habitat e Direttiva Uccelli."]
+];
+var i=0,s=0,box=document.getElementById("quizbox");
+function show(){
+if(i>=Q.length){var pct=Math.round(s/Q.length*100);box.innerHTML="<h3>Risultato: "+s+" / "+Q.length+" ("+pct+"%)</h3><p>"+(pct>=80?"🌟 Ottimo, sei un vero ecologo!":pct>=50?"👍 Buon lavoro! Ripassa i punti sbagliati e riprova.":"📖 Rileggi le sezioni e riprova: ce la puoi fare!")+"</p><button class=\"btn\" onclick=\"i=0;s=0;show()\">Ricomincia</button>";return}
+var q=Q[i],h="<small>Domanda "+(i+1)+" di "+Q.length+"</small><h3 style=\"margin-top:4px\">"+q[0]+"</h3>";
+q[1].forEach(function(o,k){h+="<button class=\"opt\" data-k=\""+k+"\">"+o+"</button>"});
+box.innerHTML=h+"<div class=\"fb\" id=\"fb\"></div>";
+var done=false;
+box.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){
+if(done)return;done=true;var k=+b.dataset.k;
+box.querySelectorAll(".opt").forEach(function(x){if(+x.dataset.k===q[2])x.classList.add("ok")});
+if(k===q[2]){s++}else{b.classList.add("no")}
+document.getElementById("fb").innerHTML=(k===q[2]?"✅ Esatto! ":"❌ Non proprio. ")+q[3]+"<br><button class=\"btn\" id=\"nx\">"+(i+1<Q.length?"Avanti":"Vedi il risultato")+"</button>";
+document.getElementById("nx").onclick=function(){i++;show()}
+}})}
+show();
+var F=[
+["Ecologia","Branca della biologia che studia le relazioni tra gli organismi e tra questi e l’ambiente fisico (clima, acqua, suolo, luce, nutrienti)."],
+["Ecologia pura","Studia le leggi generali delle relazioni tra organismi e ambiente e gli equilibri naturali."],
+["Ecologia applicata","Usa le conoscenze ecologiche per agricoltura, pesca, gestione forestale, parchi, inquinamento e conservazione."],
+["Chi è l’ecologo?","Scienziato che raccoglie dati sul campo e in laboratorio per descrivere lo stato di un ambiente, individuarne i problemi e proporre soluzioni di tutela."],
+["Come si studia l’impollinazione?","Si contano api, farfalle e altri insetti nei campi per capire se il calo delle api riduce frutti e semi."],
+["Come si studia l’inquinamento di un fiume?","Si misurano ossigeno disciolto, nutrienti e presenza di organismi indicatori."],
+["A cosa servono i radiocollari?","A tracciare i movimenti di lupi e orsi per individuare i corridoi ecologici da proteggere."],
+["Habitat","Il luogo (l’“indirizzo”) con le condizioni adatte a una specie: dove vive e si riproduce. Es. una torbiera, una parete rocciosa."],
+["Ecosistema","Il “quartiere”: viventi + ambiente non vivente + interazioni (fotosintesi, catene alimentari, cicli di materia, flussi di energia). Es. un lago."],
+["Bioma","Grande unità ambientale con clima omogeneo e vegetazione dominante simile, su scala regionale o continentale. Es. il deserto."],
+["Da cosa dipende un bioma?","Da clima, suolo, latitudine e altitudine."],
+["Componenti biotiche e abiotiche","Biotiche: produttori, consumatori, decompositori. Abiotiche: acqua, aria, suolo, temperatura, nutrienti."],
+["Produttori","Autotrofi che con la fotosintesi trasformano l’energia solare in materia: piante, alghe, fitoplancton."],
+["Consumatori primari","Erbivori che si nutrono dei produttori: conigli, insetti, zooplancton."],
+["Consumatori secondari","Predatori degli erbivori: volpi, rane, piccoli pesci."],
+["Consumatori terziari / apici","Grandi predatori al vertice della rete: aquile, squali, leoni."],
+["Decompositori e detritivori","Funghi, batteri, lombrichi: chiudono il ciclo trasformando i resti in sostanze inorganiche riutilizzabili dalle piante."],
+["Rete trofica","Insieme di catene alimentari collegate tra loro, attraverso cui passano materia ed energia. Un organismo fa parte di più percorsi."],
+["Cosa succede all’energia tra un livello e l’altro?","In gran parte si disperde, soprattutto come calore: per questo i predatori apici sono meno numerosi."],
+["Predazione (+/−)","Il predatore ottiene energia (+), la preda subisce un danno spesso letale (−). Trasferisce energia e nutrienti nella rete."],
+["Corsa agli armamenti evolutiva","Predatori: velocità, artigli, caccia di gruppo, sensi, mimicria aggressiva. Prede: camuffamento, branco, spine/tossine, mimicria difensiva."],
+["Le 5 fasi del ciclo lepri-linci","1 Lepri aumentano. 2 Linci aumentano (ritardo). 3 Lepri calano. 4 Linci calano. 5 Lepri ricrescono."],
+["Equilibrio dinamico","Le popolazioni non sono fisse: oscillano in un ciclo continuo guidato dalle risorse."],
+["Cascata trofica","Effetto a catena: se scompare il predatore apice, gli erbivori aumentano, divorano la vegetazione e distruggono l’habitat di molte specie."],
+["Direttiva Habitat 92/43/CEE","Tutela flora, fauna (uccelli esclusi) e habitat rari o minacciati: 233 tipi di habitat e 1.389 specie."],
+["Direttiva Uccelli 2009/147/CE","Tutela tutte le specie di uccelli selvatici europei, con uova, nidi e habitat. Ha sostituito la 79/409/CEE."],
+["Rete Natura 2000","Nata dall’unione delle due direttive: il più grande network di protezione al mondo."],
+["Il cambio di prospettiva dell’ecologia moderna","Non salvare solo il singolo animale, ma difendere la funzionalità ecologica dell’intero sistema: se salvi l’habitat, salvi la rete."]
+],fi=0,fc=document.getElementById("fc");
+function fshow(){fc.classList.remove("flip");document.getElementById("fcq").textContent=F[fi][0];document.getElementById("fca").textContent=F[fi][1];document.getElementById("fcn").textContent=(fi+1)+" / "+F.length}
+fc.onclick=function(){fc.classList.toggle("flip")};
+fc.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();fc.classList.toggle("flip")}};
+document.getElementById("fcx").onclick=function(){fi=(fi+1)%F.length;fshow()};
+document.getElementById("fcp").onclick=function(){fi=(fi-1+F.length)%F.length;fshow()};
+document.getElementById("fcs").onclick=function(){for(var a=F.length-1;a>0;a--){var b=Math.floor(Math.random()*(a+1)),t=F[a];F[a]=F[b];F[b]=t}fi=0;fshow()};
+fshow();
+</script>
+</body>
+</html>
